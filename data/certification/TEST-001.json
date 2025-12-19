@@ -1,0 +1,91 @@
+{
+  "certification_id": "TEST-001",
+  "level": "Level 3",
+  "status": "in_progress",
+  "issue_date": null,
+  "expiry_date": null,
+  "wcbi_score": 0.0,
+  "requirements": [
+    {
+      "id": "L3-001",
+      "name": "Overall WCBI Score",
+      "description": "Weighted Composite Benchmark Index must be \u226585",
+      "threshold": 85,
+      "actual_value": 100,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    },
+    {
+      "id": "L3-002",
+      "name": "Minimum Domain Score",
+      "description": "All domains must score \u226580",
+      "threshold": 80,
+      "actual_value": 100,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    },
+    {
+      "id": "L3-003",
+      "name": "DDIL Autonomy",
+      "description": "System must operate autonomously for \u226512 hours",
+      "threshold": 12,
+      "actual_value": 24,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    },
+    {
+      "id": "L3-004",
+      "name": "MIL-STD Compliance",
+      "description": "MIL-STD-810H environmental compliance required",
+      "threshold": true,
+      "actual_value": true,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    },
+    {
+      "id": "L3-005",
+      "name": "Independent Audit",
+      "description": "Third-party audit must be completed",
+      "threshold": true,
+      "actual_value": true,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    },
+    {
+      "id": "L3-006",
+      "name": "System Availability",
+      "description": "Demonstrated availability \u226599.9%",
+      "threshold": 99.9,
+      "actual_value": 99.99,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    },
+    {
+      "id": "L3-007",
+      "name": "Security Compliance",
+      "description": "Minimum 5 security frameworks implemented",
+      "threshold": 5,
+      "actual_value": 10,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    },
+    {
+      "id": "L3-008",
+      "name": "Renewable Energy",
+      "description": "Off-grid renewable capability \u226570%",
+      "threshold": 70,
+      "actual_value": 100,
+      "met": true,
+      "evidence_path": null,
+      "notes": ""
+    }
+  ],
+  "audit_reports": []
+}
