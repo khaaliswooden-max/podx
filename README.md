@@ -1,14 +1,15 @@
 # PodX Mobile Distributed Data Center
 
-[![XdoP Level 3 Certified](https://img.shields.io/badge/XdoP-Level%203%20Mission%20Critical-brightgreen)](https://xdop.org)
-[![WCBI Score](https://img.shields.io/badge/WCBI-100%2F100-success)](https://xdop.org/benchmark)
+[![Status](https://img.shields.io/badge/Status-Development%20(TRL%202)-yellow)](docs/roadmap/MATURITY.md)
+[![Target](https://img.shields.io/badge/Target-XdoP%20Level%203-lightgrey)](https://xdop.org)
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/khaaliswooden-max/podx/actions)
-[![MIL-STD-810H](https://img.shields.io/badge/MIL--STD-810H%20Compliant-blue)](https://www.atec.army.mil/)
 
-> **The world's first 100% XdoP-compliant Mobile Distributed Data Center achieving perfect scores across all seven benchmark domains.**
+> **A mobile computing platform designed to bring datacenter-grade performance to extreme DDIL environments.**
 
-PodX is a revolutionary mobile computing platform that brings datacenter-grade performance to extreme environments. Through strategic integration of 14 USPTO patents and first-principles engineering, PodX enables mission-critical operations anywhere, anytime, under any conditions—with zero environmental compromise.
+> ⚠️ **Development Status**: This project is in early development (TRL 2). The specifications below represent **design targets**, not validated capabilities. See our [Technology Readiness Assessment](docs/roadmap/MATURITY.md) for honest status.
+
+PodX aims to enable mission-critical operations anywhere, anytime, under disconnected, disrupted, intermittent, and limited (DDIL) network conditions. We're building this incrementally—starting with a portable demonstrator ([PodX Nano](specs/podx_nano_v1.yaml)) to validate core concepts before scaling to the full vision.
 
 ---
 
@@ -80,19 +81,46 @@ Traditional datacenters and edge computing solutions fail in:
 - **Off-Grid Scenarios**: Depend on stable grid power and cannot operate renewably
 - **Mission-Critical Reliability**: Lack redundancy and resilience for 99.99%+ availability
 
-### The Solution
+### The Solution (Design Targets)
 
-PodX achieves unprecedented capabilities through:
-- **>24-Hour DDIL Autonomy**: Operate completely disconnected with full functionality
-- **Extreme Environment Operation**: Full performance from -40°C to +60°C ambient
-- **<30-Minute Deployment**: Transport to operational in under half an hour
-- **100% Renewable Off-Grid**: Solar-battery system with zero grid dependency
-- **99.99% Availability**: Comprehensive redundancy across all subsystems
-- **Perfect XdoP Compliance**: 100/100 WCBI score across all seven domains
+PodX is being designed to achieve:
+- **>24-Hour DDIL Autonomy**: Operate completely disconnected with full functionality 📋
+- **Extreme Environment Operation**: Full performance from -40°C to +60°C ambient 📋
+- **<30-Minute Deployment**: Transport to operational in under half an hour 📋
+- **100% Renewable Off-Grid**: Solar-battery system with zero grid dependency 📋
+- **99.99% Availability**: Comprehensive redundancy across all subsystems 📋
+- **XdoP Level 3 Compliance**: Target 85+ WCBI score across seven domains 📋
+
+---
+
+## 🔬 Development Approach: PodX Nano First
+
+We're taking a **build-credibility-incrementally** approach. Rather than claiming capabilities we haven't validated, we're developing a scaled demonstrator first.
+
+| Full PodX Vision | PodX Nano v1 (Demonstrator) |
+|------------------|------------------------------|
+| ISO 20ft container ($15-25K) | Pelican case ($200) |
+| 4× EPYC 9654 ($200K+) | 1× workstation ($3K) |
+| 8× L40S GPU ($250K+) | 1× RTX 4090 ($2K) |
+| 60kWh LiFePO4 ($30-50K) | 2kWh portable ($1.6K) |
+| 15kW solar ($25-40K) | 200W panel ($200) |
+| **~$800K+ total** | **~$7K total** |
+
+**The Nano validates core concepts:**
+- ✅ DDIL network autonomy (real Starlink + LTE failover)
+- ✅ Edge AI inference (real GPU benchmarks)
+- ✅ Power management (real battery runtime)
+- ✅ Rapid deployment (real timing data)
+
+📄 **See full specification**: [specs/podx_nano_v1.yaml](specs/podx_nano_v1.yaml)
+
+📊 **Technology Readiness**: [docs/roadmap/MATURITY.md](docs/roadmap/MATURITY.md)
 
 ---
 
 ## ✨ Key Features
+
+> **Legend**: ✅ Validated | 🔬 Simulated | 📋 Design Target
 
 ### 🌐 Network Resilience
 - **4× Connectivity Modes**: Satellite (Starlink), 5G mmWave, LoRa mesh, HF radio backup
@@ -147,7 +175,9 @@ PodX achieves unprecedented capabilities through:
 
 ## 📊 XdoP Benchmark Performance
 
-PodX achieves the world's first perfect 100/100 Weighted Composite Benchmark Index (WCBI) score, representing flawless execution across all seven XdoP domains:
+> ⚠️ **Note**: The scores below are **design targets** based on simulation. See [MATURITY.md](docs/roadmap/MATURITY.md) for validated capabilities.
+
+PodX targets XdoP Level 3 certification with a 100/100 Weighted Composite Benchmark Index (WCBI) score. Current status: **Simulation Only (TRL 3-4 for software, TRL 1-2 for hardware)**.
 
 | Domain | Weight | Score | Weighted Contribution |
 |--------|--------|-------|----------------------|

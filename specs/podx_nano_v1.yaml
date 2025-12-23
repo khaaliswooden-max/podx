@@ -1,0 +1,443 @@
+# PodX Nano v1 - Demonstrator Specification
+# ==========================================
+# Purpose: Prove DDIL autonomy + edge compute in a portable, affordable form factor
+# Strategy: Build credibility incrementally to unlock funding for full PodX
+
+name: "PodX Nano v1 - Demonstrator"
+version: "1.0.0"
+status: "specification"  # specification | development | testing | production
+
+purpose: |
+  A minimum viable demonstrator that proves core PodX capabilities:
+  - DDIL network resilience (satellite + cellular failover)
+  - Edge AI inference (local LLM, vision models)
+  - Power autonomy (battery + solar)
+  - Rapid deployment (single-person portable)
+  
+  This is NOT the full PodX vision. It's the smallest system that 
+  validates the concept and generates evidence for funding.
+
+target_budget:
+  minimum: 5000  # USD - just compute + basic power
+  target: 7500   # USD - full demonstrator kit
+  maximum: 10000 # USD - with redundancy
+
+# =============================================================================
+# PHYSICAL SPECIFICATIONS
+# =============================================================================
+physical:
+  enclosure:
+    primary: "Pelican 1650 Storm Case"
+    dimensions: "71.1cm × 53.3cm × 26.7cm (28\" × 21\" × 10.5\")"
+    internal_volume: "~101 liters"
+    weight_empty: "8.6 kg (19 lbs)"
+    protection:
+      ip_rating: "IP67"
+      mil_spec: "Meets MIL-C-4150J (user serviceable)"
+      crush_resistance: "220 lbs"
+    cost: 200
+    alternatives:
+      - "Pelican 1620 (smaller, $180)"
+      - "Nanuk 960 (similar, $300)"
+      - "DIY rack case (cheaper, less protection)"
+
+  total_weight_target: "<25 kg (55 lbs)"
+  transport:
+    airline: "Checkable baggage (within limits)"
+    vehicle: "Fits in car trunk"
+    carry: "Single person with wheels/straps"
+
+# =============================================================================
+# COMPUTE OPTIONS
+# =============================================================================
+compute:
+  # Option A: Maximum Performance (Your Planned Build)
+  option_a:
+    name: "High Performance Desktop"
+    description: "Maximum AI capability in SFF form factor"
+    components:
+      cpu:
+        model: "AMD Ryzen 9 7950X3D or Threadripper PRO 5955WX"
+        cores: "16-32"
+        tdp: "120-280W"
+        cost: 500-1500
+      gpu:
+        model: "NVIDIA RTX 4090"
+        vram: "24GB GDDR6X"
+        tensor_tops: "330 INT8, 660 INT4"
+        fp16_tflops: "82.6"
+        tdp: "450W"
+        cost: 1600-2000
+      motherboard:
+        form_factor: "Mini-ITX or Micro-ATX"
+        cost: 200-400
+      ram:
+        capacity: "128GB DDR5"
+        speed: "5600MHz+"
+        cost: 300-500
+      storage:
+        primary: "2TB NVMe Gen4"
+        secondary: "2TB NVMe Gen4 (models/data)"
+        cost: 200-400
+      psu:
+        wattage: "1000W 80+ Platinum"
+        cost: 150-250
+      case:
+        type: "Compact tower or open frame"
+        cost: 100-200
+    total_cost: "3000-5000"
+    power_draw:
+      idle: "80-120W"
+      typical: "300-400W"
+      peak: "650-800W"
+    pros:
+      - "Maximum AI inference performance"
+      - "Can run 70B parameter models"
+      - "Upgradeable components"
+      - "Standard parts, easy repair"
+    cons:
+      - "High power consumption"
+      - "Requires active cooling"
+      - "Battery runtime limited"
+
+  # Option B: Efficient Embedded (Alternative)
+  option_b:
+    name: "NVIDIA Jetson AGX Orin"
+    description: "Purpose-built edge AI platform"
+    components:
+      platform:
+        model: "Jetson AGX Orin 64GB Developer Kit"
+        cpu: "12-core Arm Cortex-A78AE"
+        gpu: "2048 CUDA cores, 64 Tensor cores"
+        ram: "64GB unified LPDDR5"
+        storage: "64GB eMMC + NVMe slot"
+        tensor_tops: "275 INT8"
+        cost: 2000-2500
+      carrier:
+        model: "Connect Tech or custom carrier"
+        cost: 200-500
+      storage:
+        primary: "2TB NVMe"
+        cost: 150
+    total_cost: "2500-3500"
+    power_draw:
+      idle: "15W"
+      typical: "30-45W"
+      peak: "60W"
+    pros:
+      - "Excellent power efficiency"
+      - "Fanless operation possible"
+      - "10-20x battery runtime vs Option A"
+      - "Purpose-built for edge AI"
+    cons:
+      - "Lower peak performance"
+      - "Harder to find replacement parts"
+      - "Arm ecosystem limitations"
+
+  recommendation: |
+    For DEMONSTRATOR purposes: Option B (Jetson) is more practical.
+    - Proves the concept with 8+ hours battery runtime
+    - Still runs useful AI workloads
+    - Better matches the "deployable anywhere" story
+    
+    For CAPABILITY showcase: Option A (RTX 4090) is impressive.
+    - Shows maximum edge compute potential
+    - Runs the largest models
+    - Battery runtime limited but still proves DDIL concept
+
+# =============================================================================
+# POWER SYSTEM
+# =============================================================================
+power:
+  battery:
+    primary:
+      model: "EcoFlow Delta 2 Max"
+      capacity: "2048Wh (2kWh)"
+      output:
+        ac: "2400W continuous, 4800W surge"
+        usb_c: "140W"
+        dc: "12.6V/10A"
+      input:
+        solar: "500W max"
+        ac: "1800W (fast charge)"
+        car: "12V/24V"
+      weight: "23 kg (50 lbs)"
+      dimensions: "49.7cm × 24.2cm × 30.5cm"
+      cost: 1600-2000
+      cycle_life: "3000 cycles to 80%"
+    alternatives:
+      - name: "Bluetti AC200MAX"
+        capacity: "2048Wh"
+        cost: 1600
+      - name: "Jackery Explorer 2000"
+        capacity: "2060Wh"  
+        cost: 1800
+      - name: "DIY LiFePO4 + Inverter"
+        capacity: "Variable"
+        cost: "800-1500"
+        notes: "More work, more flexibility"
+
+  solar:
+    panel:
+      model: "200W Portable Folding Panel"
+      output: "200W @ peak sun"
+      weight: "~8 kg"
+      folded_size: "60cm × 54cm × 5cm"
+      cost: 200-400
+    realistic_output: |
+      - Clear day, optimal angle: 150-180W average
+      - Cloudy: 30-60W
+      - Indoor/shade: negligible
+    
+  runtime_estimates:
+    option_a_4090:
+      idle: "17-25 hours (80W draw)"
+      typical_inference: "5-7 hours (300W draw)"
+      peak_training: "2.5-3 hours (650W draw)"
+      with_solar: "+2-4 hours on clear day"
+    option_b_jetson:
+      idle: "100+ hours (15W draw)"
+      typical_inference: "45-65 hours (30W draw)"
+      peak_workload: "30-35 hours (60W draw)"
+      with_solar: "Indefinite on clear day"
+
+# =============================================================================
+# NETWORK CONNECTIVITY
+# =============================================================================
+network:
+  satellite:
+    primary:
+      model: "Starlink Mini"
+      description: "Compact satellite terminal"
+      speed: "50-100 Mbps typical"
+      latency: "25-60ms"
+      power: "40-75W"
+      cost:
+        hardware: 599
+        monthly: 50  # Mini Roam plan
+      portability: "Backpack-portable"
+    alternative:
+      model: "Starlink Standard"
+      cost:
+        hardware: 299-499
+        monthly: 120
+      notes: "Larger, higher power, faster setup"
+
+  cellular:
+    primary:
+      model: "Quectel RM520N-GL 5G Modem"
+      bands: "5G NR + LTE-A global bands"
+      speed: "Up to 3.4 Gbps (5G)"
+      interface: "M.2 or USB adapter"
+      cost: 150-200
+    alternatives:
+      - name: "Netgear Nighthawk M6"
+        type: "Portable hotspot"
+        cost: 400
+        notes: "Easier setup, built-in battery"
+      - name: "GL.iNet Puli (GL-XE3000)"
+        type: "5G travel router"
+        cost: 550
+        notes: "All-in-one solution"
+
+  mesh:
+    model: "RAK4631 (nRF52840 + SX1262)"
+    protocol: "Meshtastic / LoRa"
+    range: "2-10km line of sight"
+    bandwidth: "0.01-0.3 kbps"
+    power: "<1W"
+    cost: 30-50
+    use_case: "Emergency text/telemetry when all else fails"
+
+  handover_target: "<200ms between paths"
+
+# =============================================================================
+# COOLING
+# =============================================================================
+cooling:
+  challenge: |
+    RTX 4090 generates 450W TDP in a sealed case.
+    Jetson generates 60W max - much easier.
+    
+  option_a_cooling:
+    internal: "High-CFM fans + CPU/GPU coolers"
+    venting: "Filtered intake/exhaust ports in case"
+    external: "Optional external radiator connection"
+    notes: |
+      Pelican case must be modified for airflow.
+      Consider: mesh panel replacement, ducted fans.
+      Target: sustain 400W TDP at 35C ambient.
+      
+  option_b_cooling:
+    internal: "Passive heatsink + case convection"
+    venting: "Small vent holes sufficient"
+    notes: "60W is manageable without aggressive cooling"
+
+  operating_range:
+    target: "-10C to +45C ambient"
+    notes: "MIL-STD-810H requires -40C to +60C - defer this for v2"
+
+# =============================================================================
+# VALIDATION TARGETS
+# =============================================================================
+validation_targets:
+  ddil_autonomy:
+    metric: "Hours of operation with no external power/network"
+    target: ">4 hours at typical workload"
+    test_procedure: |
+      1. Fully charge battery
+      2. Disconnect AC power and all network cables
+      3. Run standard inference workload (TBD)
+      4. Record time until orderly shutdown
+    
+  deployment_time:
+    metric: "Time from vehicle arrival to operational"
+    target: "<15 minutes"
+    test_procedure: |
+      1. Start timer when vehicle stops
+      2. Unload equipment
+      3. Assemble/connect components
+      4. Establish network connectivity
+      5. Run verification benchmark
+      6. Stop timer when benchmark completes
+      
+  network_resilience:
+    metric: "Time to failover between network paths"
+    target: "<200ms"
+    test_procedure: |
+      1. Establish satellite connection
+      2. Begin sustained data transfer
+      3. Kill satellite interface
+      4. Measure time until LTE takes over
+      5. Verify <200ms interruption
+
+  ai_inference:
+    metric: "Tokens per second on LLM inference"
+    target: ">50 tok/s on 7B model"
+    test_procedure: |
+      1. Load quantized 7B model (e.g., Mistral-7B-Q4)
+      2. Run standardized prompt suite
+      3. Measure average tokens/second
+      4. Compare to cloud API baselines
+
+  environmental:
+    metric: "Operate in adverse conditions"
+    target: "Function at 0C and 40C"
+    test_procedure: |
+      1. Place system in climate chamber (or outdoors)
+      2. Run standard workload for 1 hour
+      3. Monitor temperatures, performance
+      4. Verify no throttling or failures
+
+# =============================================================================
+# BILL OF MATERIALS (Target Configuration)
+# =============================================================================
+bom:
+  compute_option_a:
+    - item: "AMD Ryzen 9 7950X3D"
+      qty: 1
+      cost: 550
+    - item: "NVIDIA RTX 4090"
+      qty: 1
+      cost: 1800
+    - item: "ASUS ROG Strix B650-I Mini-ITX"
+      qty: 1
+      cost: 280
+    - item: "128GB DDR5-5600 (2x64GB)"
+      qty: 1
+      cost: 350
+    - item: "2TB Samsung 990 Pro NVMe"
+      qty: 2
+      cost: 340
+    - item: "Corsair SF1000L SFX PSU"
+      qty: 1
+      cost: 200
+    - item: "Compact case (Meshlicious or similar)"
+      qty: 1
+      cost: 130
+    subtotal: 3650
+
+  power:
+    - item: "EcoFlow Delta 2 Max"
+      qty: 1
+      cost: 1700
+    - item: "200W Portable Solar Panel"
+      qty: 1
+      cost: 300
+    subtotal: 2000
+
+  network:
+    - item: "Starlink Mini"
+      qty: 1
+      cost: 599
+    - item: "Quectel RM520N 5G Modem + Adapter"
+      qty: 1
+      cost: 200
+    - item: "RAK4631 LoRa Module"
+      qty: 1
+      cost: 40
+    subtotal: 839
+
+  enclosure:
+    - item: "Pelican 1650 Storm Case"
+      qty: 1
+      cost: 200
+    - item: "Foam/mounting materials"
+      qty: 1
+      cost: 50
+    - item: "Cable management, connectors"
+      qty: 1
+      cost: 50
+    subtotal: 300
+
+  total_estimate: 6789
+
+# =============================================================================
+# PROJECT TIMELINE
+# =============================================================================
+timeline:
+  week_1_2:
+    - "Finalize component selection"
+    - "Order compute components"
+    - "Order power system"
+  week_3_4:
+    - "Assemble compute platform"
+    - "Validate basic operation"
+    - "Design case modifications"
+  week_5_6:
+    - "Order network equipment"
+    - "Integrate power system"
+    - "Begin software integration"
+  week_7_8:
+    - "Network integration"
+    - "Case assembly"
+    - "Full system integration"
+  week_9_10:
+    - "Validation testing"
+    - "Documentation"
+    - "Demo preparation"
+
+# =============================================================================
+# SUCCESS CRITERIA
+# =============================================================================
+success_criteria:
+  minimum_viable:
+    - "System fits in Pelican case"
+    - "Runs AI inference workload"
+    - ">2 hours battery runtime"
+    - "Network connectivity established"
+  
+  target:
+    - "All minimum criteria met"
+    - ">4 hours battery runtime"
+    - "Satellite + LTE failover works"
+    - "<15 minute deployment time"
+    - "Operates in 0-40C range"
+  
+  stretch:
+    - ">8 hours battery runtime (with solar)"
+    - "<100ms network handover"
+    - "Operates in -10 to 45C range"
+    - "Video demonstration published"
+    - "Technical paper drafted"
+
