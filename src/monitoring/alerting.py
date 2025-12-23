@@ -364,3 +364,4 @@ class AlertManager:
                 'rules_enabled': sum(1 for r in self._rules.values() if r.enabled),
             }
 
+

@@ -247,3 +247,4 @@ class HandoverManager:
                 'meets_target': self.meets_target_latency(),
             }
 
+

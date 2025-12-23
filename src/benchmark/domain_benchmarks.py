@@ -407,3 +407,4 @@ class SustainabilityBenchmark(DomainBenchmark):
         else:
             raise NotImplementedError("Real hardware measurement not implemented")
 
+

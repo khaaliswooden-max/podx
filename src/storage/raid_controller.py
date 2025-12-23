@@ -174,3 +174,4 @@ class RAIDController:
             'duration_hours': 4.5,
         }
 
+

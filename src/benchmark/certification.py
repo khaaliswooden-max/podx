@@ -408,3 +408,4 @@ class CertificationManager:
         self.current_record = record
         return record
 
+
