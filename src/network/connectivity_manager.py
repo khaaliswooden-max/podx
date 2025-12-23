@@ -296,3 +296,4 @@ class ConnectivityManager:
         logger.info(f"Updated configuration for {conn_type.value}")
         return True
 
+
